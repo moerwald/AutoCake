@@ -5,15 +5,9 @@ public static class GitVersioningAliases
 {
     public static ICakeContext Context { get; private set; }
 
-    public static void Configure(ICakeContext context)
-    {
-        Context = context;
-    }
+    public static void Configure(ICakeContext context) => Context = context; 
 
-    public static GitVersion FetchVersion()
-    {
-        var assertedVersions = Context.GitVersion(new GitVersionSettings {OutputType = GitVersionOutput.Json});
+    public static GitVersion FetchVersion() =>
+        Context.GitVersion(new GitVersionSettings {OutputType = GitVersionOutput.Json});
 
-        return assertedVersions;
-    }
 }
